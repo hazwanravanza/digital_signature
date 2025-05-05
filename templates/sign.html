@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="main-box-sign">
+        <form id="Sign_Generic_File" enctype="multipart/form-data">
+            <h3>Sign Any File</h3>
+
+            <label for="genericFile">Upload File:</label>
+            <input type="file" name="genericFile" id="genericFile" required><br><br>
+
+            <label><input type="radio" name="keyInputModeSign" value="text" checked> Input Kunci Privat (Text)</label>
+            <label><input type="radio" name="keyInputModeSign" value="file"> Upload File Kunci Privat (.pem)</label><br><br>
+
+            <div id="privateKeyTextContainer">
+                <textarea name="privateKeyText" rows="8" cols="60" placeholder="Paste private key here..." required></textarea><br><br>
+            </div>
+
+            <div id="privateKeyFileContainer" style="display: none;">
+                <input type="file" name="privateKeyFile" accept=".pem"><br><br>
+            </div>
+
+            <div class="action-row">
+                <button type="submit">Sign File</button>
+                <div id="signatureDownloadContainer"></div>
+            </div>
+            
+        </form>
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="main-box-gen">
+        <h3>Generate RSA Key Pair</h3>
+        <form id="Generate_Key">
+            <div style="margin-bottom: 20px;">
+                <label for="key_Size">RSA Key Size</label><br>
+                <select id="key_Size" name="key_Size" style="margin-top: 5px;">
+                    <option value="1024">1024 bit</option>
+                    <option value="2048">2048 bit</option>
+                    <option value="4096">4096 bit</option>
+                </select>
+            </div>
+
+            <h4>Public Key</h4>
+            <textarea id="publicKey" rows="6" cols="60" readonly></textarea><br>
+            <a id="downloadPublicKey" href="#" download="public.pem" style="display: none;">Download Public Key</a>
+
+            <h4 style="margin-top: 10px;">Private Key</h4>
+            <textarea id="privateKey" rows="6" cols="60" readonly></textarea><br>
+            <a id="downloadPrivateKey" href="#" download="private.pem" style="display: none;">Download Private Key</a>
+
+            <div style="margin-top: 10px;">
+                <button type="submit" id="gen_Key">Generate Key</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

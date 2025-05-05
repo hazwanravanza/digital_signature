@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="main-box-verify">
+        <form id="Verify_Generic_File" enctype="multipart/form-data">
+            <h3>Verify Signed File</h3>
+
+
+            <label for="originalFile">Upload Original File:</label><br>
+            <input type="file" id="originalFile" name="original_file" required><br><br>
+
+            <label for="signatureFile">Upload Signature File (.sig):</label><br>
+            <input type="file" id="signatureFile" name="signature_file" required><br><br>
+
+            <label>
+                <input type="radio" name="keyInputModeVerify" value="text" checked>
+                Input Public Key (Text)
+            </label><br>
+
+            <label>
+                <input type="radio" name="keyInputModeVerify" value="file">
+                Upload Public Key File (.pem)
+            </label><br><br>
+
+            <div id="publicKeyTextContainer">
+                <label for="publicKeyText">Paste Public Key:</label><br>
+                <textarea name="publicKeyText" id="publicKeyText" rows="8" cols="60" placeholder="Paste public key here..." required></textarea><br><br>
+            </div>
+
+            <div id="publicKeyFileContainer" style="display: none;">
+                <label for="publicKeyFile">Upload Public Key File:</label><br>
+                <input type="file" id="publicKeyFile" name="publicKeyFile"><br><br>
+            </div>
+
+            <div class="action-row">
+                <button type="submit">Verify</button>
+                <div id="verifyResult" style="margin-left: 20px;"></div>
+            </div>            
+        </form>
+
+        
+    </div>
+</div>
+
+
+{% endblock %}
